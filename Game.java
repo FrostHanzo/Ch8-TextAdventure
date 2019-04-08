@@ -34,14 +34,14 @@ public class Game
      */
     private void createRooms()
     {
-        Room Start, one, Trap, three, four, five, six, seven, eight, nine, ten, eleven, LorR, reset, GearingUp, BOSS, WINNER, HardReset;
+        Room Start, ChooseWeapon, Trap, three, Deadend, five, six, seven, eight, nine, ten, eleven, LorR, reset, GearingUp, BOSS, WINNER, HardReset;
       
         // create the rooms
         Start = new Room("");
-        one = new Room("");
+        ChooseWeapon = new Room("");
         Trap = new Room("");
         three = new Room("");
-        four = new Room("");
+        Deadend = new Room("Welp you found a deadend");
         five = new Room("");
         six = new Room("");
         seven = new Room("");
@@ -56,23 +56,24 @@ public class Game
         WINNER = new Room("");
         HardReset = new Room("You lost and have been sent back to the Start! :,(");
         // initialise room exits
-        Start.setExit("south", Trap);
-        Start.setExit("east", one);
         
-        one.setExit("east", four);
-        one.setExit("south", three);
+        Start.setExit("south", Trap);
+        Start.setExit("east", ChooseWeapon);
+        
+        ChooseWeapon.setExit("east", Deadend);
+        ChooseWeapon.setExit("south", three);
 
         Trap.setExit("north", Start);
 
         three.setExit("west", Trap);
-        three.setExit("north", one );
+        three.setExit("north", ChooseWeapon );
         three.setExit("east", five);
         
-        four.setExit("west", one);
+        Deadend.setExit("west", ChooseWeapon);
         
         five.setExit("west", three);
         five.setExit("south", seven);
-        five.setExit("north", four);
+        five.setExit("north", Deadend);
         
         six.setExit("north", three);
         
