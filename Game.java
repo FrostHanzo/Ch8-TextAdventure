@@ -34,30 +34,75 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room Start, one, Trap, three, four, five, six, seven, eight, nine, ten, eleven, LorR, reset, GearingUp, BOSS, WINNER, HardReset;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
-        
+        Start = new Room("");
+        one = new Room("");
+        Trap = new Room("");
+        three = new Room("");
+        four = new Room("");
+        five = new Room("");
+        six = new Room("");
+        seven = new Room("");
+        eight = new Room("");
+        nine = new Room("");
+        ten = new Room("");
+        eleven = new Room("");
+        LorR = new Room("");
+        reset = new Room("");
+        GearingUp = new Room("");
+        BOSS = new Room("");
+        WINNER = new Room("");
+        HardReset = new Room("You lost and have been sent back to the Start! :,(");
         // initialise room exits
-        outside.setExit("east", theater);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        Start.setExit("south", Trap);
+        Start.setExit("east", one);
+        
+        one.setExit("east", four);
+        one.setExit("south", three);
 
-        theater.setExit("west", outside);
+        Trap.setExit("north", Start);
 
-        pub.setExit("east", outside);
+        three.setExit("west", Trap);
+        three.setExit("north", one );
+        three.setExit("east", five);
+        
+        four.setExit("west", one);
+        
+        five.setExit("west", three);
+        five.setExit("south", seven);
+        five.setExit("north", four);
+        
+        six.setExit("north", three);
+        
+        seven.setExit("north", five);
+        seven.setExit("west", six);
+        seven.setExit("south", eight);
+        
+        eight.setExit("north", seven);
+        eight.setExit("west", nine);
+        eight.setExit("south", ten);
+        
+        nine.setExit("south", eleven);
+        
+        ten.setExit("west", Start);
+        
+        eleven.setExit("south", LorR);
+        
+        LorR.setExit("west", reset);
+        LorR.setExit("east", GearingUp);
+        
+        reset.setExit("north", Start);
+        
+        GearingUp.setExit("east", BOSS);
+        
+        BOSS.setExit("east", WINNER);
+        BOSS.setExit("south", HardReset);
+        
+        HardReset.setExit("east", Start);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-
-        office.setExit("west", lab);
-
-        currentRoom = outside;  // start game outside
+        currentRoom = Start;  // start game outside
     }
 
     /**
