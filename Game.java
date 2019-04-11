@@ -51,12 +51,15 @@ public class Game
         HardReset = new Room("You chose to fight the lava Boss in the a lava DUMMY!");
         // initialise room exits
         
+        
         Start.setExit("south", Trap);
         Start.setExit("east", ChooseWeapon);
         
         ChooseWeapon.setExit("east", Deadend);
         ChooseWeapon.setExit("south", three);
-
+        Items sword = new Items("sword", 1);
+        ChooseWeapon.addItem(sword);
+        
         Trap.setExit("north", Start);
 
         three.setExit("west", Trap);
@@ -92,6 +95,8 @@ public class Game
         reset.setExit("north", Start);
         
         GearingUp.setExit("east", BOSS);
+        Items Armour = new Items("Armour", 2);
+        GearingUp.addItem(Armour);
         
         BOSS.setExit("east", WINNER);
         BOSS.setExit("south", HardReset);
@@ -187,9 +192,9 @@ public class Game
         else if (commandWord.equals("drop")) {
             drop(command);
         }
-	else if (commandWord.equals("items")) {
+    else if (commandWord.equals("items")) {
         printCarriedItems();
-	}
+    }
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
         }
@@ -294,7 +299,7 @@ public class Game
       /**
          * Implement a Take command
            */
-    public void take(Command command) {
+      public void take(Command command) {
         if (! command.hasSecondWord()) {  // "TAKE",but no object named
             System.out.println("Take what?");
             return;
