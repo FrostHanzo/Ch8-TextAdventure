@@ -34,18 +34,19 @@ public class Game
      */
     private void createRooms()
     {
-        Room Start, ChooseWeapon, Trap, three, Deadend, five, six, seven, eight, nine, ten, eleven, LorR, reset, GearingUp, BOSS, WINNER, HardReset;
+        Room Start, ChooseWeapon, Trap, three, DeadEnd, Deadend, five, Boss, Doors, MiniBoss, nine, ten, eleven, LorR, reset, GearingUp, BOSS, WINNER, HardReset;
       
         // create the rooms
-        Start = new Room("");
-        ChooseWeapon = new Room("");
-        Trap = new Room("");
-        three = new Room("");
+        Start = new Room("HAHA traveler you have entered the World of Death good luck");
+        ChooseWeapon = new Room("Well it looks like you aren't gonna leave if that's the case choose your weapon.");
+        Trap = new Room("HAHAHA you thought this was going to be easy!");
+        three = new Room("This your first test you better take out these grunts.");
         Deadend = new Room("Welp you found a deadend");
-        five = new Room("");
-        six = new Room("");
-        seven = new Room("");
-        eight = new Room("");
+        DeadEnd = new Room("HAHA you fell in to the Deadend AGAIN you are dumb.");
+        five = new Room("So you managed to deafeat them impressive.");
+        Boss = new Room("So you tried to kill the Lava Boss right now haha.");
+        Doors = new Room("Two doors are in front of you choose who you face.");
+        MiniBoss = new Room("");
         nine = new Room("");
         ten = new Room("");
         eleven = new Room("");
@@ -54,7 +55,7 @@ public class Game
         GearingUp = new Room("");
         BOSS = new Room("");
         WINNER = new Room("");
-        HardReset = new Room("You lost and have been sent back to the Start! :,(");
+        HardReset = new Room("You choose to fight the lava Boss in the a lava DUMMY!");
         // initialise room exits
         
         Start.setExit("south", Trap);
@@ -72,18 +73,18 @@ public class Game
         Deadend.setExit("west", ChooseWeapon);
         
         five.setExit("west", three);
-        five.setExit("south", seven);
+        five.setExit("south", Doors);
         five.setExit("north", Deadend);
         
-        six.setExit("north", three);
+        Boss.setExit("east", five);
         
-        seven.setExit("north", five);
-        seven.setExit("west", six);
-        seven.setExit("south", eight);
+        Doors.setExit("north", five);
+        Doors.setExit("west", Boss);
+        Doors.setExit("south", MiniBoss);
         
-        eight.setExit("north", seven);
-        eight.setExit("west", nine);
-        eight.setExit("south", ten);
+        MiniBoss.setExit("north", Doors);
+        MiniBoss.setExit("west", nine);
+        MiniBoss.setExit("south", ten);
         
         nine.setExit("south", eleven);
         
