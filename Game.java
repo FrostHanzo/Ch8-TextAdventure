@@ -115,6 +115,17 @@ public class Game
                     }
     }
     
+    private int totalWeight(ArrayList L) {
+        int n=0;
+        int sum = 0;
+        while (n < L.size()) {
+            Items i = (Items) L.get(n);
+            sum += i.getWeight();
+            n++;
+        }
+        return sum;    // not found above
+    }
+    
     /**
      *  Main play routine.  Loops until end of play.
      */

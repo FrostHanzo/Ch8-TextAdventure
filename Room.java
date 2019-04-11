@@ -9,12 +9,11 @@ import java.util.ArrayList;
  * @version 1.10
  */
 
-public class Room 
+public class Room
 {
     private String description;
-    private HashMap<String, Room> exits;
-    private ArrayList <Items> items;
-    // stores exits of this room.
+                private ArrayList <Items> items; // stores items in the rooms
+        private HashMap<String, Room> exits;        // stores exits of this room.
 
     /**
      * Create a room described "description". Initially, it has
@@ -22,24 +21,24 @@ public class Room
      * "an open court yard".
      * @param description The room's description.
      */
-    public Room(String description) 
+    public Room(String description)
     {
         this.description = description;
-        exits = new HashMap<String, Room>();
+                exits = new HashMap<String, Room>();
         items = new ArrayList<Items>();
-    }
+              }
 
     /**
      * Define an exit from this room.
      * @param direction The direction of the exit.
      * @param neighbor  The room to which the exit leads.
      */
-    public void setExit(String direction, Room neighbor) 
+    public void setExit(String direction, Room neighbor)
     {
         exits.put(direction, neighbor);
     }
-    
-    /**
+
+/**
 * add a list of items
 */
 public void addItem(Items i)
@@ -54,7 +53,6 @@ public ArrayList<Items> getItems()
 {
 	return items;
 }
-
 
     /**
      * @return The short description of the room
@@ -73,20 +71,21 @@ public ArrayList<Items> getItems()
      */
     public String getLongDescription()
     {
-        return "" + description + ".\n" + getExitString();
-        if(items.size() == 0)
+        String s = "You are " + description + ".\n" + getExitString();
+    if(items.size() == 0)
     {
-        s = s+ ". There are no items in this room.";
+    s = s+ ". There are no items in this room.";
         }
-            else {
-                s = s + "The room contains the following items:";
-                for (Items i : items)
-                {
+else {
+	s = s + "The room contains the following items:";
+	for (Items i : items)
+	{
 		s = s + i.getDescription() + " ";
-                }
-            }
-    return s;
-    }
+	}
+}
+return s;
+}
+
 
     /**
      * Return a string describing the room's exits, for example
@@ -109,9 +108,8 @@ public ArrayList<Items> getItems()
      * @param direction The exit's direction.
      * @return The room in the given direction.
      */
-    public Room getExit(String direction) 
+    public Room getExit(String direction)
     {
         return exits.get(direction);
     }
 }
-
