@@ -198,6 +198,9 @@ public class Game
         else if (commandWord.equals("quit")) {
             wantToQuit = quit(command);
         }
+        else if (commandWord.equals("eat")) {
+            eat();
+        }
         // else command not recognised.
         return wantToQuit;
     }
