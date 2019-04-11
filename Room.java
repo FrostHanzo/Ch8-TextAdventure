@@ -71,7 +71,7 @@ public ArrayList<Items> getItems()
      */
     public String getLongDescription()
     {
-        String s = "You are " + description + ".\n" + getExitString();
+        String s = "" + description + ".\n" + getExitString();
     if(items.size() == 0)
     {
     s = s+ ". There are no items in this room.";
